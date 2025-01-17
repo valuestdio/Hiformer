@@ -8,7 +8,7 @@ Unlike traditional power station, the output of wind power plants is highly depe
 # Overall Architecture
 Hiformer introduces a unique structure that integrates signal decomposition technology with weather feature extraction technique to enhance the modeling of correlations between meteorological conditions and wind power generation. Additionally, Hiformer employs an encoder-only architecture, which reduces the computational complexity associated with long-term wind power forecasting.
 <p align="center">
-  <img src="figure/model.png" width="70%">
+  <img src="figure/Figure2.png" width="70%">
 </p>
 
 # Usage
