@@ -209,8 +209,8 @@ class HFFEnhancement(nn.Module):
     def __init__(self, Q, K, d, bn_decay, dropout=0.1):
         
         super(HFFEnhancement, self).__init__()
-        self.temporal_attention = FrequencyAttention(Q, K, d,  bn_decay, dropout, mask=False)
-        self.weather_attention = FeatureAttention(Q, K, d, bn_decay, dropout, mask=False)
+        self.FrequencyAttention = FrequencyAttention(Q, K, d,  bn_decay, dropout, mask=False)
+        self.FeatureAttention = FeatureAttention(Q, K, d, bn_decay, dropout, mask=False)
         self.gated_fusion = GatedFusion(K * d, bn_decay)
         self.dropout = nn.Dropout(dropout)
 
@@ -226,8 +226,8 @@ class HFFEnhancement(nn.Module):
         Returns:
             tensor: Combined output features.
         """
-        HT = self.temporal_attention(X_VMD, STE)
-        HW = self.weather_attention(X, SWE)
+        HT = self.FrequencyAttention(X_VMD, STE)
+        HW = self.FeatureAttention(X, SWE)
         H = self.gated_fusion(HT, HW)
         Y = torch.add(X, self.dropout(H))
         del HT, HW, H
