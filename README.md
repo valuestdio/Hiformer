@@ -36,5 +36,5 @@ By desiging the proposed framework, Hiformer achieves significant performance im
 ##  Ablation Study
 To evaluate the contribution of each key module in the Hiformer model, we conduct an ablation study using the SDWPF and GEFcom datasets. The experimental results provide insights into the role of each module in enhancing model performance. 
 <p align="center">
-  <img src="figure/ ablation study.png" width="50%">
+  <img src="figure/ablation study.png" width="50%">
 </p>
