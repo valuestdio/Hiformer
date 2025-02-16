@@ -30,5 +30,11 @@ We evaluate the Hiformer on two real-world datasets. Achieving best performance 
 ## Computational time
 By desiging the proposed framework, Hiformer achieves significant performance improvement in computational time
 <p align="center">
-  <img src="figure/Computational time.png" width="50%">
+  <img src="figure/computational time.png" width="50%">
+</p>
+
+##  Ablation Study
+To evaluate the contribution of each key module in the Hiformer model, we conduct an ablation study using the SDWPF and GEFcom datasets. The experimental results provide insights into the role of each module in enhancing model performance. 
+<p align="center">
+  <img src="figure/ ablation study.png" width="50%">
 </p>
