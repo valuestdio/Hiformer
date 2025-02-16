@@ -6,7 +6,11 @@ Unlike traditional power station, the output of wind power plants is highly depe
 </p>
 
 # Overall Architecture
-Hiformer introduces a unique structure that integrates signal decomposition technology with weather feature extraction technique to enhance the modeling of correlations between meteorological conditions and wind power generation. Additionally, Hiformer employs an encoder-only architecture, which reduces the computational complexity associated with long-term wind power forecasting.
+Due to the significant uncertainty and volatility of wind power, addressing it directly is a challenge. Therefore, we employ Variational Mode Decomposition (VMD) Module to process the wind power data. VMD is a signal decomposition technique that decomposes complex wind power signals into Intrinsic Mode Function (IMF).
+<p align="center">
+  <img src="figure/Figure3.png" width="70%">
+</p>
+Hiformer introduces a unique structure that integrates signal decomposition technology with weather feature extraction technique to enhance the modeling of correlations between meteorological conditions and wind power generation. Additionally, Hiformer employs an encoder-only architecture, which reduces the computational complexity associated with wind power forecasting.
 <p align="center">
   <img src="figure/Figure2.png" width="70%">
 </p>
