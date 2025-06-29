@@ -21,6 +21,10 @@ Hiformer introduces a unique structure that integrates signal decomposition tech
 pip install -r requirements.txt
 ```
 2.The datasets can be obtained from SDWPF and GEFcom2014
+
+3.Run dataload.py to generate Train, Val and Test sets in Temporal File
+
+4.Run Run.py file to train and test the model
 # Results of Long-Term Wind Power Prediction
 ## Performance comparison of different models for wind power prediction on SDWPF and GEFcom datasets.
 We evaluate the Hiformer on two real-world datasets. Achieving best performance (MAE/MSE)
