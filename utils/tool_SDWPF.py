@@ -171,7 +171,8 @@ def loadData_weather(args):
     wind_power_mode6 = h5load(args.wind_power_file_mode6)
     wind_power_mode7 = h5load(args.wind_power_file_mode7)
     # normalization
-    mean, std = np.mean(wind_power), np.std(wind_power)
+    mean = np.mean(wind_power, axis=0, keepdims=True)
+    std = np.std(wind_power, axis=0, keepdims=True)
 
     wind_power = normalize(wind_power,args.use_norm)
     wind_power_mode1 = normalize(wind_power_mode1,args.use_norm)
