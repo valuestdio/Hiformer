@@ -142,18 +142,21 @@ if __name__ == '__main__':
     tool.plot_train_val_loss(loss_train, loss_val, os.path.join(directory, 'train_val_loss.png'))
     trainX, valX, testX, train_gts, val_gts, test_gts = forecast.test_model()
     end = time.time()
-    train_all = np.sum(trainX, axis=-1)
-    val_vall = np.sum(valX, axis=-1)
-    test_all = np.sum(testX, axis=-1)
-    train_gts = np.sum(train_gts, axis=-1)
-    val_gts = np.sum(val_gts, axis=-1)
-    test_gts = np.sum(test_gts, axis=-1)
+    mean = tool.h5load(args.data_file + '/mean.h5')
+    std = tool.h5load(args.data_file + '/std.h5')
+    train_all = np.sum(trainX * std + mean, axis=-1)
+    val_all   = np.sum(valX   * std + mean, axis=-1)
+    test_all  = np.sum(testX  * std + mean, axis=-1)
+
+    train_gts = np.sum(train_gts * std + mean, axis=-1)
+    val_gts   = np.sum(val_gts   * std + mean, axis=-1)
+    test_gts  = np.sum(test_gts  * std + mean, axis=-1)
     tool.log_string(log, 'total time: %.1fmin' % ((end - start) / 60))
     tool.log_string(log, 'Test: %s\ttest_gts: %s' % (test_all.shape, test_gts.shape))
     log.close()
     
     l = [train_all, val_vall, test_all, train_gts, val_gts, test_gts]
-    name = ['train_all', 'val_vall', 'test_all', 'train_gts', 'val_gts', 'test_gts']
+    name = ['train_all', 'val_all', 'test_all', 'train_gts', 'val_gts', 'test_gts']
     for i, data in enumerate(l):
         df = pd.DataFrame(data)
         file_path = os.path.join(directory, name[i] + '.csv')
